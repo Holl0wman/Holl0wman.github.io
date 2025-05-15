@@ -93,6 +93,7 @@ body {
     padding: 10px 20px;
     color: white;
     font-family: 'Roboto Mono', monospace;
+    
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
