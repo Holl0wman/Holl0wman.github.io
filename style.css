@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+video {/*背景*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.profile {/*简介*/
+    position: absolute;
+    width: 300px;
+    top: 20px;
+    left: 20px;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.avatar {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+.name {/*姓名*/
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5rem;
+    color: #ffbed9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.links {
+    margin-top: 18%;
+    margin-left: 20px;
+    width: 20%;
+    background: rgba(255, 255, 255, 0.1); /* Reduced opacity */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Poppins";
+    display: block;
+    margin-top: 10px;
+    line-height: 50px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #eda1bd;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    cursor: url('image/custom-cursor.png'), auto; /* Replace with a valid local cursor */
+}
+
+.time-module {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.time-module .date {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.time-module .clock {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.button-container {
+    position: fixed;
+    top: 25%;
+    left:30%;
+    width: 65%;
+    height: 65%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+}
+
+.custom-button {
+    background: rgba(128, 128, 128, 0.5); /* Gray color with high transparency */
+    color: white;
+    font-size: 2rem; /* Increased size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.custom-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; /* Ensure it is visible initially */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <video autoplay loop muted>
+        <source src="video/bc1.mp4" type="video/mp4">
+    </video>
+
+    <div class="profile">
+        <img src="image/head1.png" alt="头像" class="avatar">
+        <p class="name">Holl0wman</p>
+    </div>
+    <div class="links">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://chat.deepseek.com" target="_blank">DeepSeek Chat</a>
+        <a href="https://programmercarl.com" target="_blank">Carl</a>
+        <a href="https://www.runoob.com" target="_blank">runoob</a>
+        <a href="https://leetcode.cn" target="_blank">LeetCode</a>
+        <a href="https://app.voltaic.gg" target="_blank">Voltaic</a>
+    </div>
+    <div class="time-module">
+        <div class="date"></div>
+        <div class="clock"></div>
+    </div>
+
+    <div class="button-container">
+        <a href="study.html" class="custom-button">Study</a>
+        <a href="picture.html" class="custom-button">Picture</a>
+        <a href="game.html" class="custom-button">Game</a>
+        <a href="music.html" class="custom-button">Music</a>
+    </div>
+
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const timeElement = document.querySelector('.time-module .clock');
+            const dateElement = document.querySelector('.time-module .date');
+
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            dateElement.textContent = now.toLocaleDateString('zh-CN', options);
+            timeElement.textContent = now.toLocaleTimeString('zh-CN');
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        window.onload = function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.display = 'none';
+        };
+    </script>
+    <div class="footer">
+        <p>© 2025 Holl0wman. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
