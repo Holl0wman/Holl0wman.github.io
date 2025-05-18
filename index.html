@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Holl0wman</title>
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap"
@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <video autoplay loop muted>
+    <video autoplay loop muted playsinline preload="auto" id="bg-video" poster="image/head1.png" style="background: #222;">
         <source src="video/bc1.mp4" type="video/mp4">
+        您的浏览器不支持 video 标签。
     </video>
 
     <div class="profile">
@@ -44,6 +45,12 @@
         <div class="spinner"></div>
     </div>
 
+    <div class="quote-module">
+        <span id="quote-text"></span>
+        <div id="quote-author" style="margin-top:8px;font-size:1.1rem;color:#ffd6e0;"></div>
+        <div id="quote-meaning" style="margin-top:4px;font-size:1rem;color:#b2e0ff;"></div>
+    </div>
+
     <script>
         function updateTime() {
             const timeElement = document.querySelector('.time-module .clock');
@@ -62,6 +69,23 @@
             const loadingScreen = document.getElementById('loading-screen');
             loadingScreen.style.display = 'none';
         };
+
+        // 网络随机名言
+        async function fetchQuote() {
+            try {
+                const res = await fetch('https://v1.hitokoto.cn/?encode=json');
+                const data = await res.json();
+                document.getElementById('quote-text').textContent = data.hitokoto;
+                document.getElementById('quote-author').textContent = data.from ? '—— ' + data.from : '';
+                document.getElementById('quote-meaning').textContent = '';
+            } catch (e) {
+                document.getElementById('quote-text').textContent = '网络名言获取失败，请刷新重试。';
+                document.getElementById('quote-author').textContent = '';
+                document.getElementById('quote-meaning').textContent = '';
+            }
+        }
+        fetchQuote();
+        setInterval(fetchQuote, 10000);
     </script>
     <div class="footer">
         <p>© 2025 Holl0wman. All rights reserved.</p>

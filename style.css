@@ -1,13 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
-video {/*背景*/
+video#bg-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
     z-index: -1;
+    background: #222;
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.3s;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    cursor: url('image/custom-cursor.png'), auto; /* Replace with a valid local cursor */
+    background: #222;
 }
 
 .profile {/*简介*/
@@ -24,7 +39,7 @@ video {/*背景*/
     text-align: center;
 }
 
-.avatar {
+.avatar {/*头像*/
     margin-top: 5%;
     margin-left: 5%;
     width: 40%;
@@ -35,7 +50,7 @@ video {/*背景*/
 .name {/*姓名*/
     font-family: 'Quicksand', sans-serif;
     font-size: 2.5rem;
-    color: #ffbed9;
+    color: #7b6fd4;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     font-style: italic;
@@ -45,7 +60,7 @@ video {/*背景*/
     margin-top: 18%;
     margin-left: 20px;
     width: 20%;
-    background: rgba(255, 255, 255, 0.1); /* Reduced opacity */
+    background: rgba(0,0,0,0.4);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -63,7 +78,7 @@ video {/*背景*/
 }
 
 .links a:hover {
-    color: #eda1bd;
+    color: #c788d3;
 }
 .footer {
     position: fixed;
@@ -76,24 +91,15 @@ video {/*背景*/
     font-size: 0.9rem;
 }
 
-body {
-    margin: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    color: white;
-    cursor: url('image/custom-cursor.png'), auto; /* Replace with a valid local cursor */
-}
-
 .time-module {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 80px;
+    right: 120px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 10px 20px;
     color: white;
     font-family: 'Roboto Mono', monospace;
-    
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -121,7 +127,7 @@ body {
 }
 
 .custom-button {
-    background: rgba(128, 128, 128, 0.5); /* Gray color with high transparency */
+    background: rgba(0,0,0,0.4);
     color: white;
     font-size: 2rem; /* Increased size */
     display: flex;
@@ -130,7 +136,7 @@ body {
     border: none;
     text-decoration: none;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transition: transform 0.2s, box-shadow 0.2s;
     border-radius: 10px;
     margin: 20px;
@@ -169,5 +175,88 @@ body {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.quote-module {/*名言*/
+    position: fixed;
+    left: 50%;
+    top: 80px;
+    transform: translate(-50%, 0);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Quicksand', 'Poppins', sans-serif;
+    padding: 18px 36px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    z-index: 30;
+    text-align: center;
+    max-width: 80vw;
+    letter-spacing: 1px;
+}
+
+#quote-text {
+    display: inline-block;
+    line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+    .profile {
+        width: 90vw;
+        min-width: 0;
+        max-width: 98vw;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 0 8px 0;
+        box-sizing: border-box;
+    }
+    .avatar {
+        width: 60px;
+        height: 60px;
+        min-width: 40px;
+        min-height: 40px;
+        max-width: 80px;
+        max-height: 80px;
+        margin: 0 auto 4px auto;
+        display: block;
+    }
+    .name {
+        font-size: 1.2rem;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        word-break: break-all;
+    }
+    .links {
+        width: 90vw;
+        min-width: 0;
+        max-width: 98vw;
+        margin-left: 0;
+        margin-top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px 0;
+        box-sizing: border-box;
+    }
+    .links a {
+        font-size: 0.95rem;
+        line-height: 2.2;
+        padding: 0 6px;
+        word-break: break-all;
+    }
+    .quote-module {
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.95rem;
+        padding: 8px 6px;
+        max-width: 95vw;
+        min-width: 0;
+        border-radius: 10px;
+    }
+    #quote-author, #quote-meaning {
+        font-size: 0.85rem !important;
+        word-break: break-all;
     }
 }
